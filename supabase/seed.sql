@@ -15,8 +15,8 @@ values ('00000000-0000-0000-0000-0000000000a1',
 
 insert into campaigns (
   id, name, name_ar, tagline, tagline_ar, status,
-  allow_previous_winners, segment_count, operator_passcode_hash,
-  starts_at, ends_at, created_by)
+  allow_previous_winners, segment_count, max_spins_per_minute,
+  operator_passcode_hash, starts_at, ends_at, created_by)
 values (
   '00000000-0000-0000-0000-0000000000c1',
   'urpay Summer Rewards 2026',
@@ -26,6 +26,9 @@ values (
   'ACTIVE',
   false,
   12,
+  -- Headroom for a brisk live event. The passcode is the real gate; this is a
+  -- secondary damper against a stolen anon key.
+  60,
   crypt('URPAY2026', gen_salt('bf', 10)),
   now() - interval '1 day',
   now() + interval '90 days',
