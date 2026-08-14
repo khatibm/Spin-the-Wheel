@@ -1,0 +1,26 @@
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+
+.env
+.env.*
+!.env.example
+
+# supabase CLI local state (if adopted later)
+supabase/.branches/
+supabase/.temp/
+
+# test + screenshot artifacts
+artifacts/
+playwright-report/
+test-results/
+coverage/
+
+*.log
+npm-debug.log*
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
