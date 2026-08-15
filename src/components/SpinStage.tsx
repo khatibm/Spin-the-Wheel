@@ -117,7 +117,7 @@ export function SpinStage({ campaign, passcode }: { campaign: CampaignRef; passc
     <div
       data-phase={phase}
       data-testid="stage"
-      className="relative flex h-full flex-col items-center justify-between overflow-hidden px-4 py-5"
+      className="relative flex h-full min-h-screen flex-col items-center justify-between overflow-x-hidden overflow-y-auto px-4 py-5"
     >
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_-10%,rgba(34,89,255,0.4),transparent_60%)]" />
 
@@ -152,7 +152,7 @@ export function SpinStage({ campaign, passcode }: { campaign: CampaignRef; passc
         onSettled={onSettled}
       />
 
-      <footer className="flex w-full flex-col items-center gap-4">
+      <footer className="flex w-full max-w-[min(58vh,54vw,520px)] flex-col items-center gap-4">
         {error && (
           <p data-testid="stage-error" className="rounded-xl bg-red-500/15 px-5 py-3 text-sm font-semibold text-red-200">
             {t(`errors.${error}`, { defaultValue: t('errors.GENERIC') })}

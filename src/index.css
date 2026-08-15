@@ -39,7 +39,7 @@ body {
   color: white;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+  overflow: auto;
 }
 
 html[lang='ar'] body {

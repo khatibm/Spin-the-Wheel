@@ -53,7 +53,7 @@ export function Wheel({ segments, target, hubLabel, durationSec = 6.5, onSettled
     // dir is pinned LTR: the wheel must not mirror in Arabic. Only the chrome
     // around it flips. Geometry is computed in SVG user units, so CSS
     // direction cannot reach it -- this attribute guards the layout box.
-    <div dir="ltr" className="relative aspect-square w-full max-w-[min(78vh,780px)]">
+    <div dir="ltr" className="relative aspect-square w-full max-w-[min(58vh,54vw,520px)]">
       <svg viewBox="-500 -500 1000 1000" className="h-full w-full drop-shadow-[0_0_60px_rgba(34,89,255,0.35)]">
         <defs>
           <radialGradient id="hub" cx="50%" cy="35%">
