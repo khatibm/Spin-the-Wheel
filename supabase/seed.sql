@@ -19,10 +19,10 @@ insert into campaigns (
   operator_passcode_hash, starts_at, ends_at, created_by)
 values (
   '00000000-0000-0000-0000-0000000000c1',
-  'urpay Summer Rewards 2026',
-  'مكافآت الصيف من urpay',
-  'Your Chance to Win!',
-  'فرصتك للفوز!',
+  'Win a Jaecoo J5',
+  'اربح جيكو J5',
+  'One lucky winner. One amazing car.',
+  'فائز واحد محظوظ. سيارة رائعة واحدة.',
   'ACTIVE',
   false,
   12,
@@ -40,14 +40,12 @@ values ('00000000-0000-0000-0000-0000000000c1', 'summer_2026_customers.xlsx',
         'COMPLETED', 100, 100, 0, 0,
         '00000000-0000-0000-0000-0000000000a1', now());
 
--- Prizes: SAR 1000 x1, 500 x2, 250 x5, 100 x10 = 18 awardable winners.
+-- Prizes: single grand prize, 1 awardable winner. No price shown --
+-- value_amount is left null and the UI falls back to the prize name.
 insert into prizes (campaign_id, name, name_ar, value_amount, tier,
                     total_quantity, remaining_quantity, sort_order, color)
 values
-  ('00000000-0000-0000-0000-0000000000c1', 'SAR 1,000', '1,000 ريال', 1000, 1, 1,  1,  1, '#F59E0B'),
-  ('00000000-0000-0000-0000-0000000000c1', 'SAR 500',   '500 ريال',    500, 2, 2,  2,  2, '#8B5CF6'),
-  ('00000000-0000-0000-0000-0000000000c1', 'SAR 250',   '250 ريال',    250, 3, 5,  5,  3, '#6D28D9'),
-  ('00000000-0000-0000-0000-0000000000c1', 'SAR 100',   '100 ريال',    100, 4, 10, 10, 4, '#4C1D95');
+  ('00000000-0000-0000-0000-0000000000c1', 'Jaecoo J5 2026', 'جيكو J5 2026', null, 1, 1, 1, 1, '#F9A72D');
 
 -- 100 customers built from curated bilingual name arrays and real KSA mobile
 -- prefixes, so the Arabic reveal is genuinely Arabic rather than transliterated.

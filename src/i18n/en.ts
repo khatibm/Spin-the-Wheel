@@ -27,6 +27,7 @@ export const en = {
     heading: 'WE HAVE A WINNER!',
     congrats: 'Congratulations',
     prize: 'Prize',
+    luckyWinner: "YOU'RE THE LUCKY WINNER!",
     reference: 'Reference',
     spinAgain: 'Spin again',
     close: 'Close',

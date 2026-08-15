@@ -25,7 +25,7 @@ export function PasscodeGate({ onUnlock }: { onUnlock: (c: CampaignRef, passcode
 
   return (
     <div className="flex h-full items-center justify-center px-6">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_20%,rgba(109,40,217,0.45),transparent_62%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_20%,rgba(34,89,255,0.45),transparent_62%)]" />
 
       <motion.form
         onSubmit={submit}
@@ -33,7 +33,8 @@ export function PasscodeGate({ onUnlock }: { onUnlock: (c: CampaignRef, passcode
         animate={{ opacity: 1, y: 0 }}
         className="bg-ink-800/80 w-full max-w-md rounded-3xl border border-white/10 p-9 text-center backdrop-blur"
       >
-        <h1 className="text-3xl font-extrabold text-white">{t('gate.title')}</h1>
+        <img src="/urpay-logo.svg" alt="urpay" className="mx-auto h-7 w-auto" />
+        <h1 className="mt-4 text-3xl font-extrabold text-white">{t('gate.title')}</h1>
         <p className="text-brand-300 mt-2 text-sm">{t('gate.subtitle')}</p>
 
         <label className="sr-only" htmlFor="passcode">{t('gate.passcode')}</label>

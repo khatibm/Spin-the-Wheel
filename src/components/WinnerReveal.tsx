@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { formatAmount } from '@/lib/utils';
@@ -16,6 +17,7 @@ export type RevealData = {
 export function WinnerReveal({ data, onAgain }: { data: RevealData; onAgain: () => void }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+  const [carLoaded, setCarLoaded] = useState(true);
 
   return (
     <motion.div
@@ -30,7 +32,7 @@ export function WinnerReveal({ data, onAgain }: { data: RevealData; onAgain: () 
           brand glow on top. A translucent overlay let the wheel's labels show
           through and fight the winner's name -- unreadable on a projector. */}
       <div className="absolute inset-0 -z-10 bg-ink-900/95 backdrop-blur-xl" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_45%,rgba(124,58,237,0.45),transparent_60%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_45%,rgba(34,89,255,0.45),transparent_60%)]" />
 
       <motion.div
         initial={{ scale: 0.85, opacity: 0, filter: 'blur(12px)' }}
@@ -57,12 +59,27 @@ export function WinnerReveal({ data, onAgain }: { data: RevealData; onAgain: () 
           {data.maskedMobile}
         </bdi>
 
+        {carLoaded && (
+          <motion.img
+            src="/jaecoo-j5.png"
+            alt={data.prizeName}
+            onError={() => setCarLoaded(false)}
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: 'spring', stiffness: 120, damping: 14, delay: 0.3 }}
+            className="mt-2 max-h-[28vh] w-auto max-w-[min(90vw,640px)] object-contain drop-shadow-[0_20px_50px_rgba(34,89,255,0.4)]"
+          />
+        )}
+
         <div className="border-gold-400/40 bg-gold-500/10 mt-3 rounded-2xl border px-8 py-5">
           <p className="text-gold-300 text-[clamp(0.7rem,1.1vw,0.9rem)] tracking-[0.22em] uppercase">
             {t('reveal.prize')}
           </p>
           <p className="text-gold-300 mt-1 text-[clamp(1.8rem,4.6vw,3.6rem)] font-extrabold">
-            <bdi>{formatAmount(data.prizeValue, data.currency, lang) || data.prizeName}</bdi>
+            🚗 <bdi>{formatAmount(data.prizeValue, data.currency, lang) || data.prizeName}</bdi>
+          </p>
+          <p className="text-gold-300/80 mt-1 text-[clamp(0.8rem,1.3vw,1rem)] font-semibold">
+            {t('reveal.luckyWinner')}
           </p>
         </div>
 

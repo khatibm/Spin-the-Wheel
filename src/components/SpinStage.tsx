@@ -119,7 +119,7 @@ export function SpinStage({ campaign, passcode }: { campaign: CampaignRef; passc
       data-testid="stage"
       className="relative flex h-full flex-col items-center justify-between overflow-hidden px-4 py-5"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_-10%,rgba(109,40,217,0.4),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_-10%,rgba(34,89,255,0.4),transparent_60%)]" />
 
       {testMode && (
         <div className="pointer-events-none absolute inset-0 z-40 border-[6px] border-amber-400/70">
@@ -130,7 +130,8 @@ export function SpinStage({ campaign, passcode }: { campaign: CampaignRef; passc
       )}
 
       <header className="flex flex-col items-center gap-1 text-center">
-        <h1 className="text-[clamp(1.3rem,3vw,2.4rem)] font-extrabold text-white">{title}</h1>
+        <img src="/urpay-logo.svg" alt="urpay" className="h-5 w-auto opacity-90" />
+        <h1 className="mt-1 text-[clamp(1.3rem,3vw,2.4rem)] font-extrabold text-white">{title}</h1>
         {tagline && <p className="text-brand-300 text-[clamp(0.85rem,1.5vw,1.15rem)]">{tagline}</p>}
         <div className="text-brand-200/80 mt-2 flex items-center gap-6 text-sm">
           <Stat label={t('stage.eligible')} value={info?.counts.eligible ?? 0} testid="eligible-count" />

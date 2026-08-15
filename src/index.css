@@ -1,25 +1,28 @@
 @import 'tailwindcss';
 
-/* urpay-inspired: deep purple brand, gold accent, dramatic dark stage. */
+/* urpay brand system: primary blue, gold/orange accent, dramatic dark stage. */
 @theme {
-  --color-brand-50: #f5f3ff;
-  --color-brand-200: #ddd6fe;
-  --color-brand-300: #c4b5fd;
-  --color-brand-400: #a78bfa;
-  --color-brand-500: #8b5cf6;
-  --color-brand-600: #7c3aed;
-  --color-brand-700: #6d28d9;
-  --color-brand-800: #5b21b6;
-  --color-brand-900: #4c1d95;
-  --color-brand-950: #2e1065;
+  --color-brand-50: #eaf0ff;
+  --color-brand-200: #b8cbff;
+  --color-brand-300: #8fabff;
+  --color-brand-400: #5c85ff;
+  --color-brand-500: #2259ff;
+  --color-brand-600: #1c48d6;
+  --color-brand-700: #1638a3;
+  --color-brand-800: #102875;
+  --color-brand-900: #0b1c52;
+  --color-brand-950: #071235;
 
-  --color-gold-300: #fde68a;
-  --color-gold-400: #fbbf24;
-  --color-gold-500: #f59e0b;
+  --color-gold-300: #ffd699;
+  --color-gold-400: #fbbf60;
+  --color-gold-500: #f9a72d;
 
-  --color-ink-900: #0b0616;
-  --color-ink-800: #140b26;
-  --color-ink-700: #1d1033;
+  --color-success: #2bb784;
+  --color-error: #e82c2c;
+
+  --color-ink-900: #060a1a;
+  --color-ink-800: #0d1530;
+  --color-ink-700: #142042;
 
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-arabic: 'Noto Sans Arabic', 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif;

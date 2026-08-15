@@ -27,6 +27,7 @@ export const ar = {
     heading: 'لدينا فائز!',
     congrats: 'مبروك',
     prize: 'الجائزة',
+    luckyWinner: 'أنت الفائز المحظوظ!',
     reference: 'الرقم المرجعي',
     spinAgain: 'إدارة أخرى',
     close: 'إغلاق',

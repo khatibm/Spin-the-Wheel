@@ -1,6 +1,6 @@
 import confetti from 'canvas-confetti';
 
-const COLORS = ['#8B5CF6', '#6D28D9', '#F59E0B', '#FDE68A', '#FFFFFF', '#C4B5FD'];
+const COLORS = ['#2259FF', '#1C48D6', '#F9A72D', '#FFD699', '#FFFFFF', '#8FABFF'];
 
 /** Two side cannons plus a centre burst, in three waves over ~2.5s. */
 export function celebrate() {

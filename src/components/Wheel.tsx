@@ -54,11 +54,11 @@ export function Wheel({ segments, target, hubLabel, durationSec = 6.5, onSettled
     // around it flips. Geometry is computed in SVG user units, so CSS
     // direction cannot reach it -- this attribute guards the layout box.
     <div dir="ltr" className="relative aspect-square w-full max-w-[min(78vh,780px)]">
-      <svg viewBox="-500 -500 1000 1000" className="h-full w-full drop-shadow-[0_0_60px_rgba(139,92,246,0.35)]">
+      <svg viewBox="-500 -500 1000 1000" className="h-full w-full drop-shadow-[0_0_60px_rgba(34,89,255,0.35)]">
         <defs>
           <radialGradient id="hub" cx="50%" cy="35%">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
-            <stop offset="100%" stopColor="#ddd6fe" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#b8cbff" stopOpacity="0.85" />
           </radialGradient>
           <filter id="soft">
             <feDropShadow dx="0" dy="6" stdDeviation="10" floodColor="#000" floodOpacity="0.45" />
@@ -66,7 +66,7 @@ export function Wheel({ segments, target, hubLabel, durationSec = 6.5, onSettled
         </defs>
 
         {/* Static rim + LED pins */}
-        <circle r={R_OUTER + 26} fill="#140b26" stroke="#2e1065" strokeWidth="3" />
+        <circle r={R_OUTER + 26} fill="#0d1530" stroke="#1638a3" strokeWidth="3" />
         {Array.from({ length: LED_COUNT }, (_, i) => {
           const a = (i / LED_COUNT) * Math.PI * 2 - Math.PI / 2;
           return (
@@ -75,7 +75,7 @@ export function Wheel({ segments, target, hubLabel, durationSec = 6.5, onSettled
               cx={Math.cos(a) * (R_OUTER + 13)}
               cy={Math.sin(a) * (R_OUTER + 13)}
               r={5}
-              fill={i % 2 ? '#fbbf24' : '#c4b5fd'}
+              fill={i % 2 ? '#f9a72d' : '#8fabff'}
               opacity={0.85}
             />
           );
@@ -90,8 +90,8 @@ export function Wheel({ segments, target, hubLabel, durationSec = 6.5, onSettled
               <g key={i}>
                 <path
                   d={segmentPath(i, n, R_INNER, R_OUTER)}
-                  fill={s.color ?? '#6d28d9'}
-                  stroke="#0b0616"
+                  fill={s.color ?? '#1c48d6'}
+                  stroke="#060a1a"
                   strokeWidth="2.5"
                   opacity={i % 2 ? 0.92 : 1}
                 />
@@ -121,24 +121,15 @@ export function Wheel({ segments, target, hubLabel, durationSec = 6.5, onSettled
         {/* Static hub */}
         <circle r={R_INNER} fill="url(#hub)" filter="url(#soft)" />
         <circle r={R_INNER - 12} fill="#ffffff" opacity="0.06" />
-        <text
-          textAnchor="middle"
-          y={-8}
-          fill="#4c1d95"
-          fontSize="40"
-          fontWeight="800"
-          letterSpacing="-0.02em"
-        >
-          urpay
-        </text>
-        <text textAnchor="middle" y={30} fill="#6d28d9" fontSize="21" fontWeight="600" opacity="0.85">
+        <image href="/urpay-logo-blue.svg" x={-52} y={-30} width={104} height={25.4} />
+        <text textAnchor="middle" y={30} fill="#1c48d6" fontSize="21" fontWeight="600" opacity="0.85">
           {hubLabel ?? ''}
         </text>
 
         {/* Pointer, outside the rotating group, at 12 o'clock */}
         <g filter="url(#soft)">
-          <path d={`M 0 ${-(R_OUTER + 46)} L 34 ${-(R_OUTER - 16)} L -34 ${-(R_OUTER - 16)} Z`} fill="#fbbf24" />
-          <path d={`M 0 ${-(R_OUTER + 30)} L 18 ${-(R_OUTER - 8)} L -18 ${-(R_OUTER - 8)} Z`} fill="#fffbeb" />
+          <path d={`M 0 ${-(R_OUTER + 46)} L 34 ${-(R_OUTER - 16)} L -34 ${-(R_OUTER - 16)} Z`} fill="#f9a72d" />
+          <path d={`M 0 ${-(R_OUTER + 30)} L 18 ${-(R_OUTER - 8)} L -18 ${-(R_OUTER - 8)} Z`} fill="#fff7ea" />
         </g>
       </svg>
     </div>
