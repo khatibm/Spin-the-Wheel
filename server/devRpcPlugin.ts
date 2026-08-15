@@ -42,7 +42,13 @@ export function devRpcPlugin(connectionString: string): Plugin {
     name: 'winner-wheel-dev-rpc',
     apply: 'serve',
     configureServer(server) {
-      pool = new Pool({ connectionString, max: 8 });
+      // Lazy-create the pool only on first request to avoid startup connection errors
+      const getPool = async () => {
+        if (!pool) {
+          pool = new Pool({ connectionString, max: 8 });
+        }
+        return pool;
+      };
 
       server.middlewares.use('/api/rpc', async (req, res) => {
         const send = (code: number, body: unknown) => {
@@ -68,7 +74,8 @@ export function devRpcPlugin(connectionString: string): Plugin {
         }
 
         const params = ALLOWED[fn].map((k) => (body[k] === undefined ? null : body[k]));
-        const client = await pool!.connect();
+        const poolInstance = await getPool();
+        const client = await poolInstance.connect();
         try {
           await client.query('begin');
           await client.query('set local role anon');
